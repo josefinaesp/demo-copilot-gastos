@@ -32,7 +32,8 @@ export class DivisorDeGastos {
       const diferencia = monto - cuota;
       saldos.set(persona, Math.round(diferencia * 100) / 100);
     });
-    return saldos;
+    const saldosOrdenados = [...saldos.entries()].sort((a, b) => b[1] - a[1]);
+    return new Map(saldosOrdenados);
   }
 
   personaQueMasGasto(): string {
