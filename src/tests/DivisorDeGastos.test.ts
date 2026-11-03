@@ -8,4 +8,11 @@ describe("DivisorDeGastos", () => {
     divisor.calcularSaldos().forEach((saldo) => (suma += saldo));
     expect(suma).toBeCloseTo(0, 1);
   });
+
+  it("ordena los saldos de mayor a menor", () => {
+    const divisor = new DivisorDeGastos();
+    const saldos = divisor.calcularSaldos();
+
+    expect([...saldos.keys()]).toEqual(["Ana", "Carla", "Bruno"]);
+  });
 });
